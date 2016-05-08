@@ -1,0 +1,60 @@
+<%= form_for(@subscriber, html: {class: 'form-horizontal'}) do |f| %>
+    <% if @subscriber.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(@subscriber.errors.count, "error") %> prohibited this subscriber from being saved:</h2>
+            <ul>
+                <% @subscriber.errors.full_messages.each do |message| %>
+                    <li>
+                        <%= message %>
+                    </li>
+                    <% end %>
+            </ul>
+        </div>
+        <% end %>
+            <div class="form-group">
+                <label for="subscriber[name]" class="col-md-2">Библиотека</label>
+                <div class="col-md-4">
+                    <%= f.select :library_id, Library.all.collect {|l| [ l.name, l.id ]}, {include_blank: "Выберите библиотеку"}, class: 'form-control input-sm', required: 'required' %>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="subscriber[name]" class="col-md-2">Номер билета</label>
+                <div class="col-md-4">
+                    <%= f.text_field :ticket, class: 'form-control input-sm', required: 'required' %>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="subscriber[name]" class="col-md-2">Фамилия</label>
+                <div class="col-md-4">
+                    <%= f.text_field :surname, class: 'form-control input-sm', required: 'required' %>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="subscriber[name]" class="col-md-2">Имя</label>
+                <div class="col-md-4">
+                    <%= f.text_field :name, class: 'form-control input-sm', required: 'required' %>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="subscriber[name]" class="col-md-2">Отчество</label>
+                <div class="col-md-4">
+                    <%= f.text_field :patronymic, class: 'form-control input-sm' %>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="subscriber[name]" class="col-md-2">Адрес</label>
+                <div class="col-md-4">
+                    <%= f.text_field :address, class: 'form-control input-sm', required: 'required' %>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="subscriber[name]" class="col-md-2">Телефон</label>
+                <div class="col-md-4">
+                    <%= f.text_field :tel, class: 'form-control input-sm', required: 'required' %>
+                </div>
+            </div>
+            <br>
+            <div class="actions">
+                <%= f.submit "Отправить", class: 'btn btn-sm btn-primary' %>
+            </div>
+            <% end %>

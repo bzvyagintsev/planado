@@ -1,0 +1,53 @@
+<% breadcrumb :libraries %>
+    <div class="row">
+        <div class="col-md-6">
+            <h1>Библиотеки</h1>
+        </div>
+        <div class="col-md-6">
+            <div class="pull-right">
+                <%= link_to new_library_path, class: 'btn btn-primary btn-sm' do %>
+                    <i class="fa fa-plus"></i> Новая библиотека
+                    <% end %>
+            </div>
+        </div>
+    </div>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th class="table__id">#</th>
+                <th>Номер</th>
+                <th>Название</th>
+                <th>Адрес</th>
+                <th class="table__actions">Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @libraries.each do |library| %>
+                <tr>
+                    <td class="table__id">
+                        <%= library.id %>
+                    </td>
+                    <td>
+                        <%= library.number %>
+                    </td>
+                    <td>
+                        <%= library.name %>
+                    </td>
+                    <td>
+                        <%= library.address %>
+                    </td>
+                    <td class="table__actions">
+                        <%= link_to library do %>
+                            <i class="fa fa-eye"></i>
+                            <% end %>
+                                <%= link_to edit_library_path(library) do %>
+                                    <i class="fa fa-pencil"></i>
+                                    <% end %>
+                                        <%= link_to library, method: :delete, data: { confirm: 'Вы уверены?' } do %>
+                                            <i class="fa fa-trash"></i>
+                                            <% end %>
+                    </td>
+                </tr>
+                <% end %>
+        </tbody>
+    </table>

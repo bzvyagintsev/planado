@@ -1,0 +1,57 @@
+<% breadcrumb :issuances %>
+    <div class="row">
+        <div class="col-md-6">
+            <h1>Выдачи</h1>
+        </div>
+        <div class="col-md-6">
+            <div class="pull-right">
+                <%= link_to new_issuance_path, class: 'btn btn-primary btn-sm' do %>
+                    <i class="fa fa-plus"></i> Новая выдача
+                    <% end %>
+            </div>
+        </div>
+    </div>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th class="table__id">#</th>
+                <th>Книга</th>
+                <th>Абонент</th>
+                <th>Дата выдачи</th>
+                <th>Дата возврата</th>
+                <th class="table__actions">Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @issuances.each do |issuance| %>
+                <tr>
+                    <td class="table__id">
+                        <%= issuance.id %>
+                    </td>
+                    <td>
+                        <%= issuance.book.name %>
+                    </td>
+                    <td>
+                        <%= fio issuance.subscriber %>
+                    </td>
+                    <td>
+                        <%= issuance.issuance_date %>
+                    </td>
+                    <td>
+                        <%= issuance.return_date %>
+                    </td>
+                    <td class="table__actions">
+                        <%= link_to issuance do %>
+                            <i class="fa fa-eye"></i>
+                            <% end %>
+                                <%= link_to edit_issuance_path(issuance) do %>
+                                    <i class="fa fa-pencil"></i>
+                                    <% end %>
+                                        <%= link_to issuance, method: :delete, data: { confirm: 'Вы уверены?' } do %>
+                                            <i class="fa fa-trash"></i>
+                                            <% end %>
+                    </td>
+                </tr>
+                <% end %>
+        </tbody>
+    </table>

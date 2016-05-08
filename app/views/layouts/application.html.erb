@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Planado</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+            <%= csrf_meta_tags %>
+</head>
+
+<body>
+    <%= render 'layouts/header' %>
+        <div class="wrapper">
+            <div class="sidebar">
+                <%= render 'layouts/sidebar' %>
+            </div>
+            <div class="content">
+                <%= breadcrumbs style: :bootstrap %>
+                    <div class="container-fluid">
+                        <% flash.each do |type, content| %>
+                            <% if content.respond_to?('each') 
+                                content.each do |item| %>
+                                <%= render 'layouts/alert', type: type, content: item %>
+                                    <% end %>
+                                        <% else %>
+                                            <%= render 'layouts/alert', type: type, content: content %>
+                                                <% end %>
+                                                    <% end %>
+                                                        <%= yield %>
+                    </div>
+            </div>
+        </div>
+        <script>
+        if (localStorage.state == 'active') {
+            $('.sidebar').addClass('sidebar_active');
+        }
+        $('#navbar__sidebar-toggle').click(function() {
+            if ($('.sidebar').hasClass('sidebar_active')) {
+                $('.sidebar').removeClass('sidebar_active');
+                localStorage.removeItem('state');
+            } else {
+                $('.sidebar').addClass('sidebar_active');
+                localStorage.setItem('state', 'active');
+            }
+        })
+        </script>
+</body>
+
+</html>

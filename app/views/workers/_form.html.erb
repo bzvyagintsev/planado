@@ -1,0 +1,66 @@
+<%= form_for(@worker, html: {class: 'form-horizontal'}) do |f| %>
+    <% if @worker.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(@worker.errors.count, "error") %> prohibited this worker from being saved:</h2>
+            <ul>
+                <% @worker.errors.full_messages.each do |message| %>
+                    <li>
+                        <%= message %>
+                    </li>
+                    <% end %>
+            </ul>
+        </div>
+        <% end %>
+            <div class="form-group">
+                <label for="worker[name]" class="col-md-2">Библиотека</label>
+                <div class="col-md-4">
+                    <%= f.select :library_id, Library.all.collect {|l| [ l.name, l.id ]}, {include_blank: "Выберите библиотеку"}, class: 'form-control input-sm', required: 'required' %>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="worker[name]" class="col-md-2">Должность</label>
+                <div class="col-md-4">
+                    <%= f.text_field :position, class: 'form-control input-sm', required: 'required' %>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="worker[name]" class="col-md-2">Фамилия</label>
+                <div class="col-md-4">
+                    <%= f.text_field :surname, class: 'form-control input-sm', required: 'required' %>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="worker[name]" class="col-md-2">Имя</label>
+                <div class="col-md-4">
+                    <%= f.text_field :name, class: 'form-control input-sm', required: 'required' %>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="worker[name]" class="col-md-2">Отчество</label>
+                <div class="col-md-4">
+                    <%= f.text_field :patronymic, class: 'form-control input-sm' %>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="worker[name]" class="col-md-2">Дата рождения</label>
+                <div class="col-md-4">
+                    <%= f.date_field :birthday, class: 'form-control input-sm' %>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="worker[name]" class="col-md-2">Дата принятия на работу</label>
+                <div class="col-md-4">
+                    <%= f.date_field :joined_date, class: 'form-control input-sm' %>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="worker[name]" class="col-md-2">Образование</label>
+                <div class="col-md-4">
+                    <%= f.text_field :education, class: 'form-control input-sm' %>
+                </div>
+            </div>
+            <br>
+            <div class="actions">
+                <%= f.submit "Отправить", class: 'btn btn-sm btn-primary' %>
+            </div>
+            <% end %>

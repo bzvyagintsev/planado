@@ -1,0 +1,28 @@
+<% breadcrumb :library, @library %>
+    <h1><%= @library.name %></h1>
+    <div class="row">
+        <label for="library[number]" class="col-md-2">Номер</label>
+        <div class="col-md-4">
+            <%= @library.number %>
+        </div>
+    </div>
+    <div class="row">
+        <label for="library[name]" class="col-md-2">Наименование</label>
+        <div class="col-md-4">
+            <%= @library.name %>
+        </div>
+    </div>
+    <div class="row">
+        <label for="library[address]" class="col-md-2">Адрес</label>
+        <div class="col-md-4">
+            <%= @library.address %>
+        </div>
+    </div>
+    <br>
+    <div>
+        <%= link_to 'Изменить', edit_library_path(@library), class: 'btn btn-primary btn-sm' %>
+    </div>
+    <br>
+    <%= link_to libraries_path do %>
+        <span>←</span> Назад
+        <% end %>

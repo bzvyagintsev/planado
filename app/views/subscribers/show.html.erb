@@ -1,0 +1,40 @@
+<% breadcrumb :subscriber, @subscriber %>
+    <h1><%= @subscriber.name %></h1>
+    <div class="row">
+        <label for="subscriber[name]" class="col-md-2">Библиотека</label>
+        <div class="col-md-4">
+            <%=  @subscriber.library.name %>
+        </div>
+    </div>
+    <div class="row">
+        <label for="subscriber[name]" class="col-md-2">Номер билета</label>
+        <div class="col-md-4">
+            <%=  @subscriber.ticket  %>
+        </div>
+    </div>
+    <div class="row">
+        <label for="subscriber[name]" class="col-md-2">ФИО</label>
+        <div class="col-md-4">
+            <%=  fio @subscriber %>
+        </div>
+    </div>
+    <div class="row">
+        <label for="subscriber[name]" class="col-md-2">Адрес</label>
+        <div class="col-md-4">
+            <%=  @subscriber.address  %>
+        </div>
+    </div>
+    <div class="row">
+        <label for="subscriber[name]" class="col-md-2">Телефон</label>
+        <div class="col-md-4">
+            <%=  @subscriber.tel  %>
+        </div>
+    </div>
+    <br>
+    <div>
+        <%= link_to 'Изменить',  edit_subscriber_path(@subscriber), class: 'btn btn-primary btn-sm' %>
+    </div>
+    <br>
+    <%= link_to subscribers_path do %>
+        <span>←</span> Назад
+        <% end %>

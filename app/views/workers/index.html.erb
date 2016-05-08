@@ -1,0 +1,57 @@
+<% breadcrumb :workers %>
+    <div class="row">
+        <div class="col-md-6">
+            <h1>Сотрудники</h1>
+        </div>
+        <div class="col-md-6">
+            <div class="pull-right">
+                <%= link_to new_worker_path, class: 'btn btn-primary btn-sm' do %>
+                    <i class="fa fa-plus"></i> Новый сотрудник
+                    <% end %>
+            </div>
+        </div>
+    </div>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th class="table__id">#</th>
+                <th>ФИО</th>
+                <th>Библиотека</th>
+                <th>Должность</th>
+                <th>Дата рождения</th>
+                <th class="table__actions">Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @workers.each do |worker| %>
+                <tr>
+                    <td class="table__id">
+                        <%= worker.id %>
+                    </td>
+                    <td>
+                        <%= fio worker %>
+                    </td>
+                    <td>
+                        <%= worker.library.name %>
+                    </td>
+                    <td>
+                        <%= worker.position %>
+                    </td>
+                    <td>
+                        <%= worker.birthday %>
+                    </td>
+                    <td class="table__actions">
+                        <%= link_to worker do %>
+                            <i class="fa fa-eye"></i>
+                            <% end %>
+                                <%= link_to edit_worker_path(worker) do %>
+                                    <i class="fa fa-pencil"></i>
+                                    <% end %>
+                                        <%= link_to worker, method: :delete, data: { confirm: 'Вы уверены?' } do %>
+                                            <i class="fa fa-trash"></i>
+                                            <% end %>
+                    </td>
+                </tr>
+                <% end %>
+        </tbody>
+    </table>

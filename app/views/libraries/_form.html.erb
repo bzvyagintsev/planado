@@ -1,0 +1,36 @@
+<%= form_for(@library, html: {class: 'form-horizontal'}) do |f| %>
+    <% if @library.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(@library.errors.count, "error") %> prohibited this library from being saved:</h2>
+            <ul>
+                <% @library.errors.full_messages.each do |message| %>
+                    <li>
+                        <%= message %>
+                    </li>
+                    <% end %>
+            </ul>
+        </div>
+        <% end %>
+            <div class="form-group">
+                <label for="library[number]" class="col-md-2">Номер</label>
+                <div class="col-md-4">
+                    <%= f.text_field :number, class: 'form-control input-sm', required: 'required' %>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="library[name]" class="col-md-2">Наименование</label>
+                <div class="col-md-4">
+                    <%= f.text_field :name, class: 'form-control input-sm', required: 'required' %>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="library[address]" class="col-md-2">Адрес</label>
+                <div class="col-md-4">
+                    <%= f.text_field :address, class: 'form-control input-sm', required: 'required' %>
+                </div>
+            </div>
+            <br>
+            <div class="actions">
+                <%= f.submit "Отправить", class: 'btn btn-sm btn-primary' %>
+            </div>
+            <% end %>

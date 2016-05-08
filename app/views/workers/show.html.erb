@@ -1,0 +1,46 @@
+<% breadcrumb :worker, @worker %>
+    <h1><%= @worker.name %></h1>
+    <div class="row">
+        <label for="worker[name]" class="col-md-2">Библиотека</label>
+        <div class="col-md-4">
+            <%= @worker.library.name %>
+        </div>
+    </div>
+    <div class="row">
+        <label for="worker[name]" class="col-md-2">Должность</label>
+        <div class="col-md-4">
+            <%=  @worker.position %>
+        </div>
+    </div>
+    <div class="row">
+        <label for="worker[name]" class="col-md-2">ФИО</label>
+        <div class="col-md-4">
+            <%=  fio @worker %>
+        </div>
+    </div>
+    <div class="row">
+        <label for="worker[name]" class="col-md-2">Дата рождения</label>
+        <div class="col-md-4">
+            <%=  @worker.birthday %>
+        </div>
+    </div>
+    <div class="row">
+        <label for="worker[name]" class="col-md-2">Дата принятия на работу</label>
+        <div class="col-md-4">
+            <%=  @worker.joined_date %>
+        </div>
+    </div>
+    <div class="row">
+        <label for="worker[name]" class="col-md-2">Образование</label>
+        <div class="col-md-4">
+            <%= @worker.education %>
+        </div>
+    </div>
+    <br>
+    <div>
+        <%= link_to 'Изменить', edit_worker_path(@worker), class: 'btn btn-primary btn-sm' %>
+    </div>
+    <br>
+    <%= link_to workers_path do %>
+        <span>←</span> Назад
+        <% end %>

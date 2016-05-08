@@ -1,0 +1,34 @@
+<% breadcrumb :issuance, @issuance %>
+    <h1>Выдача <%= @issuance.id %></h1>
+    <div class="row">
+        <label for="issuance[name]" class="col-md-2">Книга</label>
+        <div class="col-md-4">
+            <%= @issuance.book.name %>
+        </div>
+    </div>
+    <div class="row">
+        <label for="issuance[name]" class="col-md-2">Абонент</label>
+        <div class="col-md-4">
+            <%= fio @issuance.subscriber %>
+        </div>
+    </div>
+    <div class="row">
+        <label for="issuance[name]" class="col-md-2">Дата выдачи</label>
+        <div class="col-md-4">
+            <%= @issuance.issuance_date %>
+        </div>
+        <div class="row">
+        </div>
+        <label for="issuance[name]" class="col-md-2">Дата возврата</label>
+        <div class="col-md-4">
+            <%= @issuance.return_date %>
+        </div>
+    </div>
+    <br>
+    <div>
+        <%= link_to 'Изменить', edit_issuance_path(@issuance), class: 'btn btn-primary btn-sm' %>
+    </div>
+    <br>
+    <%= link_to issuances_path do %>
+        <span>←</span> Назад
+        <% end %>

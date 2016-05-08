@@ -1,0 +1,131 @@
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
+ @import 'bootstrap';
+ @import 'bootstrap-theme';
+ //
+ body {
+     display: flex;
+     min-height: 100vh;
+     flex-direction: column;
+     font-size: 13px!important;
+ }
+ 
+ label {
+     font-weight: normal!important;
+ }
+ 
+ .navbar {
+     margin-bottom: 0px!important;
+ }
+ 
+ .navbar__sidebar-toggle {
+     width: 69px;
+     text-align: center;
+     border-right: 1px solid #eee;
+     margin-right: 15px;
+ }
+ 
+ .login-wrapper {
+     display: flex;
+     height: 100vh;
+     justify-content: center;
+     align-items: center;
+     background: url('login-bg.jpg');
+     background-size: cover;
+ }
+ 
+ .login__hint {
+     color: #777;
+ }
+ 
+ .wrapper {
+     display: flex;
+     flex: 1;
+ }
+ 
+ .sidebar {
+     width: 70px;
+     flex: 0 1 auto;
+     background: #363636;
+     padding: 15px;
+     transition: all 0.2s;
+     .sidebar__item {
+         position: relative;
+         padding: 9px 9px;
+         white-space: nowrap;
+         a {
+             text-decoration: none;
+         }
+         .sidebar__item-icon,
+         .sidebar__item-text {
+             color: #959595;
+         }
+         &:hover {
+             .sidebar__item-icon,
+             .sidebar__item-text {
+                 color: white;
+             }
+         }
+     }
+     .sidebar__item-icon {
+         font-size: 18px;
+         width: 15px;
+     }
+     .sidebar__item-text {
+         visibility: hidden;
+         opacity: 0;
+         margin-left: 10px;
+         font-size: 15px;
+         transition: opacity 0.4s;
+     }
+     &.sidebar_active {
+         width: 200px;
+         .sidebar__item-text {
+             visibility: visible;
+             opacity: 1;
+             transition: opacity 0.3s;
+         }
+     }
+ }
+ 
+ .content {
+     flex: 1 1 auto;
+ }
+ 
+ .content {
+     h1,
+     .h1,
+     h2,
+     .h2,
+     h3,
+     .h3,
+     h4,
+     .h4,
+     h5,
+     .h5,
+     h6,
+     .h6 {
+         margin-top: 0px;
+         margin-bottom: 20px;
+     }
+ }
+ 
+ input[required] {
+     background: url(required.svg) no-repeat right 0.75rem center;
+     background-size: 8px;
+ }
+ 
+ .table__id {
+     width: 30px;
+     text-align: center;
+ }
+ 
+ .table__actions {
+     width: 150px;
+     a {
+         margin-right: 10px;
+         &:hover {
+             text-decoration: none;
+         }
+     }
+ }

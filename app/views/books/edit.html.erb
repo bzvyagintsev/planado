@@ -1,0 +1,7 @@
+<% breadcrumb :edit_book, @book %>
+    <h1>Изменить книгу</h1>
+    <%= render 'form' %>
+        <br>
+        <%= link_to @book do %>
+            <span>←</span> Назад
+            <% end %>

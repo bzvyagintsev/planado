@@ -1,0 +1,58 @@
+<% breadcrumb :book, @book %>
+    <h1><%= @book.name %></h1>
+    <div class="row">
+        <label for="book[name]" class="col-md-2">Название</label>
+        <div class="col-md-4">
+            <%= @book.name %>
+        </div>
+    </div>
+    <div class="row">
+        <label for="book[name]" class="col-md-2">Шифр</label>
+        <div class="col-md-4">
+            <%= @book.cypher %>
+        </div>
+    </div>
+    <div class="row">
+        <label for="book[name]" class="col-md-2">Библиотека</label>
+        <div class="col-md-4">
+            <%= @book.library.name %>
+        </div>
+    </div>
+    <div class="row">
+        <label for="book[name]" class="col-md-2">Автор</label>
+        <div class="col-md-4">
+            <%= @book.author %>
+        </div>
+    </div>
+    <div class="row">
+        <label for="book[name]" class="col-md-2">Издательство</label>
+        <div class="col-md-4">
+            <%= @book.publisher %>
+        </div>
+    </div>
+    <div class="row">
+        <label for="book[name]" class="col-md-2">Год издания</label>
+        <div class="col-md-4">
+            <%= @book.publishing_year %>
+        </div>
+    </div>
+    <div class="row">
+        <label for="book[name]" class="col-md-2">Цена</label>
+        <div class="col-md-4">
+            <%= @book.price %> <i class="fa fa-rub"></i>
+        </div>
+    </div>
+    <div class="row">
+        <label for="book[name]" class="col-md-2">Дата поставки</label>
+        <div class="col-md-4">
+            <%= @book.supply_date %>
+        </div>
+    </div>
+    <br>
+    <div>
+        <%= link_to 'Изменить', edit_book_path(@book), class: 'btn btn-primary btn-sm' %>
+    </div>
+    <br>
+    <%= link_to books_path do %>
+        <span>←</span> Назад
+        <% end %>
