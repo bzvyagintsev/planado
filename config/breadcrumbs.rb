@@ -22,7 +22,7 @@ crumb :workers do
   link "Сотрудники", workers_path
 end
 crumb :worker do |worker|
-  link worker.name, worker_path(worker)
+  link fio(worker), worker_path(worker)
   parent :workers
 end
 crumb :new_worker do
@@ -55,7 +55,7 @@ crumb :subscribers do
   link "Абоненты", subscribers_path
 end
 crumb :subscriber do |subscriber|
-  link subscriber.name, subscriber_path(subscriber)
+  link fio(subscriber), subscriber_path(subscriber)
   parent :subscribers
 end
 crumb :edit_subscriber do |subscriber|
