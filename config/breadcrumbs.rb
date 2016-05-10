@@ -1,6 +1,9 @@
 crumb :root do
   link "Главная", root_path
 end
+crumb :summary do
+  link "Отчёт", summary_path
+end
 
 crumb :books do
   link "Книги", books_path

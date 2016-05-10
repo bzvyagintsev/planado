@@ -1,0 +1,46 @@
+<% breadcrumb :summary %>
+    <h1>Отчет</h1>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th class="table__id">#</th>
+                <th>Номер</th>
+                <th>Название</th>
+                <th>Адрес</th>
+                <th>Кол-во книг</th>
+                <th>Активные выдачи</th>
+                <th>Кол-во сотрудников</th>
+                <th>Кол-во абонентов</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @libraries.each do |library| %>
+                <tr>
+                    <td class="table__id">
+                        <%= library.id %>
+                    </td>
+                    <td>
+                        <%= library.number %>
+                    </td>
+                    <td>
+                        <%= library.name %>
+                    </td>
+                    <td>
+                        <%= library.address %>
+                    </td>
+                    <td>
+                        <%= library.books.count %> шт.
+                    </td>
+                    <td>
+                        <%= current_issuances library.books %> шт.
+                    </td>
+                    <td>
+                        <%= library.workers.count %> чел.
+                    </td>
+                    <td>
+                        <%= library.subscribers.count %> чел.
+                    </td>
+                </tr>
+                <% end %>
+        </tbody>
+    </table>

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :libraries
   resources :subscribers
   resources :workers
+  get '/summary', to: 'summary#index', as: :summary
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
