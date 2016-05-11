@@ -8,7 +8,6 @@
                 <th>Название</th>
                 <th>Адрес</th>
                 <th>Кол-во книг</th>
-                <th>Активные выдачи</th>
                 <th>Кол-во сотрудников</th>
                 <th>Кол-во абонентов</th>
             </tr>
@@ -30,9 +29,6 @@
                     </td>
                     <td>
                         <%= library.books.count %> шт.
-                    </td>
-                    <td>
-                        <%= current_issuances library.books %> шт.
                     </td>
                     <td>
                         <%= library.workers.count %> чел.
